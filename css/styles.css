@@ -1,0 +1,72 @@
+:root{
+  --bg:#fbfdff;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2b8bd3;
+  --radius:12px;
+  --max-w:1100px;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:var(--bg);color:#102a43;line-height:1.5}
+.container{max-width:var(--max-w);margin:0 auto;padding:1rem}
+.site-header{background:linear-gradient(90deg,#ffffffcc,#eaf6ff);backdrop-filter:blur(6px);border-bottom:1px solid rgba(16,42,67,.06)}
+.header-inner{display:flex;align-items:center;gap:1rem;padding:1rem}
+.brand h1{margin:0;font-size:1.25rem}
+.brand .subtitle{margin:0;font-size:.85rem;color:var(--muted)}
+.main-nav{margin-left:auto;display:flex;gap:1rem}
+.main-nav a{color:var(--muted);text-decoration:none;padding:.4rem .6rem;border-radius:8px}
+.main-nav a:hover{background:#f2fbff;color:var(--accent)}
+.cta{margin-left:1rem;background:var(--accent);color:#fff;padding:.5rem .9rem;border-radius:10px;text-decoration:none}
+.hero{padding:2.25rem 0}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center}
+.hero-text h2{margin:0 0 .5rem;font-size:1.6rem}
+.hero-text p{color:var(--muted);margin:0 0 1rem}
+.stats{display:flex;gap:1.25rem;margin-top:1rem}
+.stats div{background:var(--card);padding:.6rem .9rem;border-radius:10px;box-shadow:0 6px 18px rgba(16,42,67,.06);text-align:center}
+.stats strong{display:block;font-size:1.1rem}
+.hero-image svg{width:100%;height:100%;max-height:320px;border-radius:12px;display:block}
+.hero-image img{width:100%;height:100%;max-height:320px;border-radius:12px;object-fit:cover;display:block}
+.card{background:var(--card);padding:1.1rem;border-radius:var(--radius);box-shadow:0 6px 20px rgba(16,42,67,.04);margin:1.25rem 0}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.service h4{margin:.2rem 0}
+.news-list{list-style:none;padding:0;margin:0}
+.news-list li{padding:.5rem 0;border-bottom:1px dashed #eef4fb}
+.news-list a{color:var(--accent);text-decoration:none}
+.link-more{display:inline-block;margin-top:.75rem;color:var(--accent)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.photo{background:linear-gradient(135deg,#ffd58a,#ffb3c6);height:120px;border-radius:8px}
+.contact-card p{margin:.4rem 0}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
+.contact-form input,.contact-form textarea{padding:.6rem;border:1px solid #e6eef8;border-radius:8px}
+.contact-form button{grid-column:1/-1;background:var(--accent);color:#fff;border:none;padding:.6rem;border-radius:8px}
+.site-footer{padding:1rem 0;margin-top:1rem;border-top:1px solid rgba(16,42,67,.04)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+
+/* Layout with left sidebar */
+.layout{display:grid;grid-template-columns:280px 1fr;gap:1.25rem;align-items:start}
+.sidebar h4{margin-top:0}
+.sidebar .doc-list{list-style:none;padding:0;margin:0}
+.sidebar .doc-list li{padding:.5rem 0;border-bottom:1px solid #f1f7fb}
+.sidebar .doc-list a{display:block;color:var(--accent);text-decoration:none}
+.sidebar .doc-list a:hover{text-decoration:underline}
+.content{min-width:0}
+
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-image{order:-1}
+  .grid-3{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-form{grid-template-columns:1fr}
+  .main-nav{display:none}
+  .layout{grid-template-columns:1fr}
+  .sidebar{order:-1}
+}
+
+/* Events page helpers (video grid handled in events.html inline too) */
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.video-card{background:var(--card);padding:.6rem;border-radius:10px;box-shadow:0 6px 18px rgba(16,42,67,.05)}
+.video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+@media (max-width:1000px){.video-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.video-grid{grid-template-columns:1fr}}

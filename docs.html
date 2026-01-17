@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Мекеме құжаттары — ЖМ «Жан жылуы»</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .docs-header{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .doc-list-inline{list-style:none;padding:0;margin:0}
+    .doc-list-inline li{padding:.45rem 0}
+    .doc-viewer{width:100%;height:72vh;border:1px solid #e6eef8;border-radius:8px;overflow:hidden}
+    .doc-actions{margin:.5rem 0}
+    .doc-actions a{margin-right:.6rem;color:var(--accent)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>ЖМ «Жан жылуы»</h1>
+        <p class="subtitle">мемлекеттік құжаттар</p>
+      </div>
+      <a class="cta" href="index.html">Артқа</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="layout">
+      <aside class="card sidebar">
+        <h4>Мекеме құжаттары</h4>
+        <ul class="doc-list">
+          <!-- sidebar kept for navigation; main listing is to the right -->
+          <li><a href="docs.html">Барлығы</a></li>
+        </ul>
+      </aside>
+
+      <div class="content">
+        <section class="card">
+          <div class="docs-header">
+            <h3>Құжаттар</h3>
+            <div class="doc-actions">Скачать: <span id="downloadLinks"></span></div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:320px 1fr;gap:1rem;margin-top:1rem;align-items:start">
+            <nav>
+              <ul id="fileList" class="doc-list-inline"></ul>
+            </nav>
+
+            <div>
+              <div id="viewerWrap">
+                <iframe id="pdfViewer" class="doc-viewer" src="" aria-label="PDF viewer"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2024 ЖМ «Жан жылуы»</div>
+    </div>
+  </footer>
+
+  <script>
+    // File names from folder 'Мекеме құжаттары'
+    const files = [
+      'БИН_compressed.pdf',
+      'Жарғы “Жан жылуы”бб_compressed.pdf',
+      'Мед договор_compressed.pdf',
+      'Сэс заключение _compressed.pdf',
+      'Техобслуживание _compressed.pdf'
+    ];
+
+    const list = document.getElementById('fileList');
+    const viewer = document.getElementById('pdfViewer');
+    const downloads = document.getElementById('downloadLinks');
+
+    function fileUrl(name){
+      // build relative URL to the folder, encode URI component for safety
+      return 'Мекеме құжаттары/' + encodeURIComponent(name);
+    }
+
+    files.forEach((f,i)=>{
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = fileUrl(f);
+      a.textContent = f.replace(/_compressed|_/g, ' ');
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        viewer.src = fileUrl(f);
+        // update download link
+        updateDownloads(f);
+      });
+      li.appendChild(a);
+      list.appendChild(li);
+      // add small download link
+      const dl = document.createElement('a');
+      dl.href = fileUrl(f);
+      dl.textContent = (i===files.length-1)? '' : '';
+      dl.setAttribute('download','');
+      downloads.appendChild(dl);
+    });
+
+    function updateDownloads(name){
+      downloads.innerHTML = '';
+      const a = document.createElement('a');
+      a.href = fileUrl(name);
+      a.textContent = 'Жүктеу';
+      a.setAttribute('download','');
+      downloads.appendChild(a);
+    }
+
+    // open first file by default
+    if(files.length){ viewer.src = fileUrl(files[0]); updateDownloads(files[0]); }
+  </script>
+</body>
+</html>
