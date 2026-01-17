@@ -98,3 +98,8 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0
   .stats{gap:.6rem}
   .stats div{padding:.45rem .6rem}
 }
+
+/* Ensure burger is hidden on larger screens */
+@media (min-width:901px){
+  .nav-toggle{display:none !important}
+}
