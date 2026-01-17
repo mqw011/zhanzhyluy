@@ -21,6 +21,12 @@
         <h1>ЖМ «Жан жылуы»</h1>
         <p class="subtitle">мемлекеттік құжаттар</p>
       </div>
+      <button class="nav-toggle" aria-label="Навигация">☰</button>
+      <nav class="main-nav">
+        <a href="index.html">Басты бет</a>
+        <a href="events.html">Мерекелік іс-шаралар</a>
+        <a href="docs.html">Мекеме құжаттары</a>
+      </nav>
       <a class="cta" href="index.html">Артқа</a>
     </div>
   </header>
@@ -49,7 +55,7 @@
 
             <div>
               <div id="viewerWrap">
-                <iframe id="pdfViewer" class="doc-viewer" src="" aria-label="PDF viewer"></iframe>
+                <iframe id="pdfViewer" class="doc-viewer" src="" aria-label="PDF viewer" loading="lazy"></iframe>
               </div>
             </div>
           </div>
@@ -116,5 +122,6 @@
     // open first file by default
     if(files.length){ viewer.src = fileUrl(files[0]); updateDownloads(files[0]); }
   </script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

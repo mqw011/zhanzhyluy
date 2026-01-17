@@ -13,14 +13,16 @@
         <h1>ЖМ «Жан жылуы»</h1>
         <p class="subtitle">бөбекжай балабақшасы</p>
       </div>
+      <button class="nav-toggle" aria-label="Навигация">☰</button>
       <nav class="main-nav">
         <a href="#about">Біз туралы</a>
         <a href="#services">Қызметтер</a>
         <a href="#news">Жаңалықтар</a>
         <a href="events.html">Ұйымдастырылған іс шаралар</a>
         <a href="#gallery">Фотосуреттер</a>
+        <a href="docs.html">Мекеме құжаттары</a>
       </nav>
-      <a class="cta" href="#contacts">Тіркелу</a>
+      <a class="cta" href="events.html">Тіркелу</a>
     </div>
   </header>
 
@@ -31,13 +33,17 @@
           <h2>Сіздің балаларыңыздың болашағы сенімді қолда!</h2>
           <p>ЖМ «Жан жылуы» бөбекжай балабақшасы — ата-аналарға сенімді, шығармашылық пен білімге бағытталған орталық. 3 топ, 75 балаға арналған.</p>
           <div class="stats">
-            <div><strong>30</strong><span>тәрбиеленушілер</span></div>
-            <div><strong>5</strong><span>топтар</span></div>
-            <div><strong>12</strong><span>үйірмелер</span></div>
+            <div><strong>75</strong><span>балалар</span></div>
+            <div><strong>3</strong><span>топ</span></div>
+            <div><strong>Топтар</strong><span>Ортанғы · Ересек · Мектепалды</span></div>
           </div>
         </div>
         <div class="hero-image">
-          <img src="img/WhatsApp%20Image%202026-01-16%20at%2015.32.10.jpeg" alt="ЖМ «Жан жылуы» — балабақша" />
+          <picture>
+            <source type="image/avif" srcset="img/hero-800.avif 800w, img/hero-1200.avif 1200w" sizes="(max-width:900px) 100vw, 420px">
+            <source type="image/webp" srcset="img/hero-800.webp 800w, img/hero-1200.webp 1200w" sizes="(max-width:900px) 100vw, 420px">
+            <img src="img/WhatsApp%20Image%202026-01-16%20at%2015.32.10.jpeg" alt="ЖМ «Жан жылуы» — балабақша" loading="lazy" decoding="async" style="width:100%;height:auto;object-fit:cover;border-radius:12px;max-height:360px">
+          </picture>
         </div>
       </div>
     </div>
@@ -119,10 +125,10 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© 2024 ЖМ «Жан жылуы» — Барлық құқықтар қорғалған</div>
+      <div>© 2026 ЖМ «Жан жылуы» — Барлық құқықтар қорғалған</div>
       <div class="socials">Жұмыс істеген: mqw999</div>
     </div>
   </footer>
-
+  <script src="js/main.js" defer></script>
 </body>
 </html>

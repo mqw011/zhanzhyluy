@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Мерекелік іс-шаралар — ЖМ «Жан жылуы»</title>
+  <title>Ұйымдастырылған іс шаралар — ЖМ «Жан жылуы»</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
     .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -19,33 +19,39 @@
     <div class="container header-inner">
       <div class="brand">
         <h1>ЖМ «Жан жылуы»</h1>
-        <p class="subtitle">Мерекелік іс-шаралар</p>
+        <p class="subtitle">Ұйымдастырылған іс шаралар</p>
       </div>
+      <button class="nav-toggle" aria-label="Навигация">☰</button>
+      <nav class="main-nav">
+        <a href="index.html">Басты бет</a>
+        <a href="events.html">Ұйымдастырылған іс шаралар</a>
+        <a href="docs.html">Мекеме құжаттары</a>
+      </nav>
       <a class="cta" href="index.html">Артқа</a>
     </div>
   </header>
 
   <main class="container">
     <section class="card">
-      <h3>Мерекелік іс-шаралар — бейнелер</h3>
+      <h3>Ұйымдастырылған іс шаралар — бейнелер</h3>
       <p>Төмендегі бейнелерді сайт ішінде көре аласыз.</p>
 
       <div class="video-grid">
-        <!-- List of embedded YouTube shorts -->
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/VGSQALFoosk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/TaGHRQO5mtE" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/Z7oJl8SXojE" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/LlLdZvqyZbI" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/GuNJ3CApzPY" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/tq6sc4tOoVo" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/ciijX7uK7Rw" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/119PxtVam_A" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/WcDVw-81Cm0" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/gvulQqIn3mo" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/XGYOL7iWNWk" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/iaMLWcr8hng" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/4IkBdQ8-APo" allowfullscreen></iframe></div></div>
-        <div class="video-card"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/-1X44h_Uvdw" allowfullscreen></iframe></div></div>
+        <!-- Click-to-load placeholders (improves mobile performance) -->
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/VGSQALFoosk" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/VGSQALFoosk/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/TaGHRQO5mtE" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/TaGHRQO5mtE/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/Z7oJl8SXojE" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/Z7oJl8SXojE/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/LlLdZvqyZbI" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/LlLdZvqyZbI/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/GuNJ3CApzPY" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/GuNJ3CApzPY/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/tq6sc4tOoVo" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/tq6sc4tOoVo/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/ciijX7uK7Rw" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/ciijX7uK7Rw/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/119PxtVam_A" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/119PxtVam_A/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/WcDVw-81Cm0" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/WcDVw-81Cm0/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/gvulQqIn3mo" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/gvulQqIn3mo/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/XGYOL7iWNWk" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/XGYOL7iWNWk/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/iaMLWcr8hng" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/iaMLWcr8hng/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/4IkBdQ8-APo" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/4IkBdQ8-APo/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
+        <div class="video-card"><div class="video-wrap"><div class="video-placeholder" data-src="https://www.youtube.com/embed/-1X44h_Uvdw" tabindex="0" role="button" aria-label="Ойнату"><img src="https://i.ytimg.com/vi/-1X44h_Uvdw/hqdefault.jpg" alt="" loading="lazy"><button class="play-btn" aria-hidden="true">▶</button></div></div></div>
       </div>
     </section>
   </main>
@@ -53,5 +59,8 @@
   <footer class="site-footer">
     <div class="container footer-inner">© 2024 ЖМ «Жан жылуы»</div>
   </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/videos.js" defer></script>
 </body>
 </html>
