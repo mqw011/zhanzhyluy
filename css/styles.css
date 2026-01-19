@@ -47,14 +47,10 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0
 .site-footer{padding:1rem 0;margin-top:1rem;border-top:1px solid rgba(16,42,67,.04)}
 .footer-inner{display:flex;justify-content:space-between;align-items:center}
 
-/* Layout with left sidebar */
-.layout{display:grid;grid-template-columns:280px 1fr;gap:1.25rem;align-items:start}
-.sidebar h4{margin-top:0}
-.sidebar .doc-list{list-style:none;padding:0;margin:0}
-.sidebar .doc-list li{padding:.5rem 0;border-bottom:1px solid #f1f7fb}
-.sidebar .doc-list a{display:block;color:var(--accent);text-decoration:none}
-.sidebar .doc-list a:hover{text-decoration:underline}
-.content{min-width:0}
+/* Layout with left sidebar - Modified to single column */
+.layout{display:block;max-width:800px;margin:0 auto}
+.sidebar{display:none} /* Hide sidebar if present */
+.content{width:100%}
 
 
 @media (max-width:900px){
