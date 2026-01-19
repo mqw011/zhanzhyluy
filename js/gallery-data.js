@@ -49,12 +49,30 @@ const galleryCategories = {
     "national-2.webp",
     "national-3.webp",
     "national-4.webp",
-    "national-5.webp"
+    "national-5.webp",
+    "national-6.webp",
+    "national-7.webp",
+    "national-8.webp",
+    "national-9.webp",
+    "national-10.webp"
   ]
 };
 const galleryVideos = [
   "WhatsApp Video 2026-01-19 at 14.38.16.mp4",
   "WhatsApp Video 2026-01-19 at 14.38.17.mp4",
   "WhatsApp Video 2026-01-19 at 14.53.36.mp4",
-  "WhatsApp Video 2026-01-19 at 15.15.50.mp4"
+  "WhatsApp Video 2026-01-19 at 15.15.50.mp4",
+  "WhatsApp Video 2026-01-19 at 16.55.38.mp4",
+  "WhatsApp Video 2026-01-19 at 16.58.55.mp4",
+  "WhatsApp Video 2026-01-19 at 17.20.49.mp4",
+  "WhatsApp Video 2026-01-19 at 17.21.40.mp4",
+  "WhatsApp Video 2026-01-19 at 17.21.54.mp4",
+  "WhatsApp Video 2026-01-19 at 17.22.58.mp4",
+  "WhatsApp Video 2026-01-19 at 17.23.33.mp4",
+  "WhatsApp Video 2026-01-19 at 17.24.24.mp4",
+  "WhatsApp Video 2026-01-19 at 17.25.07.mp4",
+  "WhatsApp Video 2026-01-19 at 17.36.07.mp4",
+  "WhatsApp Video 2026-01-19 at 16.52.18.mp4",
+  "WhatsApp Video 2026-01-19 at 16.55.03.mp4",
+  "WhatsApp Video 2026-01-19 at 16.55.23.mp4"
 ];
