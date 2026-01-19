@@ -99,3 +99,18 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0
 @media (min-width:901px){
   .nav-toggle{display:none !important}
 }
+
+/* Gallery Dynamic Styles */
+.gallery-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: #eee;
+}
+.gallery-img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

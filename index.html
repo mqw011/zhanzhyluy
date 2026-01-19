@@ -86,13 +86,10 @@
 
         <section id="gallery" class="card">
           <h3>Фотосуреттер</h3>
-          <div class="gallery-grid">
-            <div class="photo" aria-hidden="true"></div>
-            <div class="photo" aria-hidden="true"></div>
-            <div class="photo" aria-hidden="true"></div>
-            <div class="photo" aria-hidden="true"></div>
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- JS Populated -->
           </div>
-          <a class="link-more" href="#">Барлық фотосуреттер →</a>
+          <button id="galleryToggleBtn" class="cta" style="margin-top:1rem; width:100%; text-align:center; display:none; background:transparent; color:var(--accent); border:1px solid var(--accent);">Барлық фотосуреттерді көрсету</button>
         </section>
 
         <!-- Контактная секция удалена по запросу -->
@@ -107,5 +104,56 @@
     </div>
   </footer>
   <script src="js/main.js" defer></script>
+  <script src="js/gallery-data.js"></script>
+  <script>
+    (function() {
+        const grid = document.getElementById('galleryGrid');
+        const btn = document.getElementById('galleryToggleBtn');
+        const limit = 8;
+        let showingAll = false;
+
+        function render() {
+            if(!grid) return;
+            grid.innerHTML = '';
+            // If showingAll is false, slice the array, else show all
+            const visibleImages = showingAll ? galleryImages : galleryImages.slice(0, limit);
+            
+            visibleImages.forEach(src => {
+                const img = document.createElement('img');
+                img.src = 'img/gallery/' + src;
+                img.loading = 'lazy';
+                img.alt = 'Жан жылуы фотосурет';
+                img.className = 'gallery-img';
+                
+                // Simple lightbox on click
+                img.onclick = () => window.open(img.dataSrc || img.src, '_blank');
+                
+                grid.appendChild(img);
+            });
+
+            // Button visibility
+            if(galleryImages.length > limit) {
+                btn.style.display = 'block';
+                btn.textContent = showingAll ? 'Жасыру' : 'Барлық фотосуреттерді көрсету (' + galleryImages.length + ')';
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+
+        if(btn) {
+            btn.onclick = () => {
+                showingAll = !showingAll;
+                if(showingAll) btn.classList.add('active');
+                else btn.classList.remove('active');
+                render();
+            };
+        }
+
+        // Init
+        if(typeof galleryImages !== 'undefined') {
+            render();
+        }
+    })();
+  </script>
 </body>
 </html>
