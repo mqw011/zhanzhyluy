@@ -231,13 +231,7 @@
     }
   </style>
   
-  <!-- Libraries for processing DOCX/XLSX -->
-  <!-- JSZip is required for docx-preview -->
-  <script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
-  <!-- Docx-preview -->
-  <script src="https://unpkg.com/docx-preview/dist/docx-preview.min.js"></script>
-  <!-- SheetJS for Excel -->
-  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <!-- Microsoft Viewer is used for DOC/DOCX/XLS/XLSX, no extra libraries needed -->
 </head>
 <body>
   <header class="site-header">
@@ -397,17 +391,20 @@
         img.style.margin = '0 auto';
         viewerContainer.appendChild(img);
       }
-      else if (fileNode.fileType === 'word') {
-          // .doc files (legacy binary) cannot be rendered by docx-preview
-          if (fileNode.path.toLowerCase().endsWith('.doc')) {
-             showDownloadFallback(encodedPath, fileNode.fileType);
-          } else {
-             renderDocx(encodedPath);
-          }
-      }
-      else if (fileNode.fileType === 'excel') {
-          // Render XLSX
-          renderXlsx(encodedPath);
+      else if (fileNode.fileType === 'word' || fileNode.fileType === 'excel') {
+          // Use Microsoft Office Online Viewer for all Office documents
+          // This supports .doc, .docx, .xls, .xlsx provided the site is public (e.g. GitHub Pages)
+          const fullUrl = new URL(encodedPath, window.location.href).href;
+          const viewerUrl = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(fullUrl);
+          
+          const iframe = document.createElement('iframe');
+          iframe.className = 'doc-viewer';
+          iframe.src = viewerUrl;
+          iframe.setAttribute('frameborder', '0');
+          iframe.style.width = '100%';
+          iframe.style.height = '75vh';
+          
+          viewerContainer.appendChild(iframe);
       }
       else {
         // Fallback
@@ -426,61 +423,7 @@
         viewerContainer.appendChild(div);
     }
 
-    async function renderDocx(path) {
-        loader.style.display = 'flex';
-        try {
-            const response = await fetch(path);
-            if (!response.ok) throw new Error("HTTP error " + response.status);
-            const blob = await response.blob();
-            
-            const wrapper = document.createElement('div');
-            wrapper.className = 'docx-viewer-wrapper';
-            
-            const docDiv = document.createElement('div');
-            docDiv.className = 'docx-viewer';
-            wrapper.appendChild(docDiv);
-            viewerContainer.appendChild(wrapper);
 
-            await docx.renderAsync(blob, docDiv, null, {
-                inWrapper: false, 
-                ignoreWidth: false,
-                experimental: true
-            });
-        } catch (err) {
-            console.error(err);
-            viewerContainer.innerHTML = '<div class="download-placeholder"><p style="color:red">Файлды ашу мүмкін болмады (CORS немесе қате).<br>Мүмкін сіз сайтты жергілікті компьютерден ашып жатырсыз.<br>GitHub Pages-те жұмыс істейді.</p><a href="'+path+'" class="download-btn">Жүктеп алу</a></div>';
-        } finally {
-            loader.style.display = 'none';
-        }
-    }
-
-    async function renderXlsx(path) {
-        loader.style.display = 'flex';
-        try {
-            const response = await fetch(path);
-            if (!response.ok) throw new Error("Status " + response.status);
-            const arrayBuffer = await response.arrayBuffer();
-            
-            const workbook = XLSX.read(arrayBuffer);
-            const firstSheetName = workbook.SheetNames[0];
-            const worksheet = workbook.Sheets[firstSheetName];
-            
-            const html = XLSX.utils.sheet_to_html(worksheet);
-            
-            const wrapper = document.createElement('div');
-            wrapper.className = 'xlsx-viewer';
-            wrapper.style.overflow = 'auto';
-            wrapper.style.height = '75vh';
-            wrapper.innerHTML = html;
-            viewerContainer.appendChild(wrapper);
-
-        } catch (err) {
-            console.error(err);
-             viewerContainer.innerHTML = '<div class="download-placeholder"><p style="color:red">Excel файлды ашу қатесі.</p><a href="'+path+'" class="download-btn">Жүктеп алу</a></div>';
-        } finally {
-            loader.style.display = 'none';
-        }
-    }
 
   </script>
   <script src="js/main.js" defer></script>
