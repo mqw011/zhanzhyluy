@@ -17,9 +17,9 @@
       <nav class="main-nav">
         <a href="#about">Біз туралы</a>
         <a href="#services">Қызметтер</a>
-        <a href="events.html">Ұйымдастырылған іс шаралар</a>
-        <a href="#gallery">Фотосуреттер</a>
-        <a href="docs.html">Мекеме құжаттары</a>
+        <a href="events.html">Іс-шаралар</a>
+        <a href="photos.html">Фотосуреттер</a>
+        <a href="docs.html">Құжаттар</a>
       </nav>
       
     </div>
@@ -84,12 +84,19 @@
 
         
 
-        <section id="gallery" class="card">
-          <h3>Фотосуреттер</h3>
-          <div class="gallery-grid" id="galleryGrid">
-            <!-- JS Populated -->
+        <section id="gallery" class="card" style="text-align:center; padding:3rem;">
+          <h3>Біздің фотогалерея</h3>
+          <p style="color:var(--muted); margin-bottom:1.5rem;">Балабақша тынысынан фотосуреттер топтамасын қараңыз.</p>
+          
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; margin-bottom:1.5rem; opacity:0.8;">
+               <!-- Static preview of random nice images if explicit ones are known, else simple placeholder logic or just a few divs -->
+               <div style="background:#eee; height:100px; border-radius:6px; background-image:url('img/gallery/equip-1.webp'); background-size:cover;"></div>
+               <div style="background:#eee; height:100px; border-radius:6px; background-image:url('img/gallery/dev-1.webp'); background-size:cover;"></div>
+               <div style="background:#eee; height:100px; border-radius:6px; background-image:url('img/gallery/nature-1.webp'); background-size:cover;"></div>
+               <div style="background:#eee; height:100px; border-radius:6px; background-image:url('img/gallery/national-1.webp'); background-size:cover;"></div>
           </div>
-          <button id="galleryToggleBtn" class="cta" style="margin-top:1rem; width:100%; text-align:center; display:none; background:transparent; color:var(--accent); border:1px solid var(--accent);">Барлық фотосуреттерді көрсету</button>
+
+          <a class="cta" href="photos.html">📸 Галереяны ашу</a>
         </section>
 
         <!-- Контактная секция удалена по запросу -->
@@ -104,42 +111,6 @@
     </div>
   </footer>
   <script src="js/main.js" defer></script>
-  <script src="js/gallery-data.js"></script>
-  <script>
-    (function() {
-        const grid = document.getElementById('galleryGrid');
-        const btn = document.getElementById('galleryToggleBtn');
-        const limit = 8;
-        let showingAll = false;
-
-        function render() {
-            if(!grid) return;
-            grid.innerHTML = '';
-            // If showingAll is false, slice the array, else show all
-            const visibleImages = showingAll ? galleryImages : galleryImages.slice(0, limit);
-            
-            visibleImages.forEach(src => {
-                const img = document.createElement('img');
-                img.src = 'img/gallery/' + src;
-                img.loading = 'lazy';
-                img.alt = 'Жан жылуы фотосурет';
-                img.className = 'gallery-img';
-                
-                // Simple lightbox on click
-                img.onclick = () => window.open(img.dataSrc || img.src, '_blank');
-                
-                grid.appendChild(img);
-            });
-
-            // Button visibility
-            if(galleryImages.length > limit) {
-                btn.style.display = 'block';
-                btn.textContent = showingAll ? 'Жасыру' : 'Барлық фотосуреттерді көрсету (' + galleryImages.length + ')';
-            } else {
-                btn.style.display = 'none';
-            }
-        }
-
         if(btn) {
             btn.onclick = () => {
                 showingAll = !showingAll;

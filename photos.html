@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Фотогалерея — ЖМ «Жан жылуы»</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+      .gallery-section { margin-bottom: 3rem; }
+      .gallery-section h2 { 
+          border-left: 5px solid var(--accent);
+          padding-left: 1rem;
+          margin-bottom: 1.5rem;
+          color: #102a43;
+      }
+      /* Inherit grid from main styles but ensure standard look */
+      .photo-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 1rem;
+      }
+      .photo-card {
+          background: #fff;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+          transition: transform 0.2s;
+          cursor: pointer;
+      }
+      .photo-card:hover { transform: translateY(-4px); }
+      .photo-card img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          display: block;
+      }
+      
+      /* Lightbox */
+      .lightbox {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(0,0,0,0.9);
+          z-index: 1000;
+          display: none;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem;
+      }
+      .lightbox.active { display: flex; }
+      .lightbox img {
+          max-width: 95%;
+          max-height: 95vh;
+          border-radius: 4px;
+          box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      }
+      .lightbox-close {
+          position: absolute;
+          top: 20px;
+          right: 30px;
+          color: #fff;
+          font-size: 3rem;
+          cursor: pointer;
+          background: none;
+          border: none;
+      }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>ЖМ «Жан жылуы»</h1>
+        <p class="subtitle">бөбекжай балабақшасы</p>
+      </div>
+      <button class="nav-toggle" aria-label="Навигация" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+      <nav class="main-nav">
+        <a href="index.html">Басты бет</a>
+        <a href="events.html">Іс-шаралар</a>
+        <a href="photos.html" class="active">Фотосуреттер</a>
+        <a href="docs.html">Құжаттар</a>
+      </nav>
+      <a class="cta" href="index.html">Артқа</a>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:2rem;">
+      <div style="text-align:center; margin-bottom:3rem;">
+        <h1>Біздің фотогалерея</h1>
+        <p style="color:var(--muted); max-width:600px; margin:0 auto;">
+            Балабақшамыздың тыныс-тіршілігі, жабдықтары және тәрбие орталарымен таныс болыңыз.
+        </p>
+      </div>
+
+      <div id="galleryContainer">
+          <!-- JS will inject categories here -->
+      </div>
+  </main>
+
+  <!-- Simple Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+      <button class="lightbox-close">&times;</button>
+      <img id="lightboxImg" src="" alt="Full view">
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 ЖМ «Жан жылуы»</div>
+    </div>
+  </footer>
+
+  <script src="js/gallery-data.js"></script>
+  <script>
+      (function() {
+          if(typeof galleryCategories === 'undefined') return;
+
+          const container = document.getElementById('galleryContainer');
+          const lb = document.getElementById('lightbox');
+          const lbImg = document.getElementById('lightboxImg');
+
+          // Iterate over categories
+          for (const [title, images] of Object.entries(galleryCategories)) {
+              if (images.length === 0) continue;
+
+              const section = document.createElement('section');
+              section.className = 'gallery-section';
+
+              const h2 = document.createElement('h2');
+              h2.textContent = title;
+              section.appendChild(h2);
+
+              const grid = document.createElement('div');
+              grid.className = 'photo-grid';
+
+              images.forEach(src => {
+                  const card = document.createElement('div');
+                  card.className = 'photo-card';
+                  
+                  const img = document.createElement('img');
+                  img.src = 'img/gallery/' + src;
+                  img.loading = 'lazy';
+                  img.alt = title; 
+                  
+                  card.onclick = (e) => {
+                      e.stopPropagation();
+                      lbImg.src = img.src;
+                      lb.classList.add('active');
+                  };
+
+                  card.appendChild(img);
+                  grid.appendChild(card);
+              });
+
+              section.appendChild(grid);
+              container.appendChild(section);
+          }
+      })();
+  </script>
+</body>
+</html>
