@@ -21,7 +21,9 @@ def build_tree(root_dir):
     for item in items:
         # Skip system/hidden files and specific site files
         if item.startswith('.'): continue
-        if item in ['index.html', 'docs.html', 'events.html', 'css', 'js', 'img', 'README.md', 'generate_docs_data.py', 'LICENSE']: continue
+        if item.startswith('~$'): continue # Word temp files
+        if item.endswith('.tmp'): continue # Temp files
+        if item in ['index.html', 'docs.html', 'events.html', 'photos.html', 'css', 'js', 'img', 'README.md', 'generate_docs_data.py', 'process_media.py', 'process_photos.py', 'process_photos_v2.py', 'LICENSE']: continue
         
         path = os.path.join(root_dir, item)
         
