@@ -88,15 +88,27 @@
           <h3>Біздің фотогалерея</h3>
           <p style="color:var(--muted); margin-bottom:1.5rem;">Балабақша тынысынан фотосуреттер топтамасын қараңыз.</p>
           
-          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; margin-bottom:1.5rem; opacity:0.8;">
-               <!-- Static preview of random nice images if explicit ones are known, else simple placeholder logic or just a few divs -->
-               <div style="background:#eee; height:100px; border-radius:6px; background-image:url('img/gallery/equip-1.webp'); background-size:cover;"></div>
-               <div style="background:#eee; height:100px; border-radius:6px; background-image:url('img/gallery/dev-1.webp'); background-size:cover;"></div>
-               <div style="background:#eee; height:100px; border-radius:6px; background-image:url('img/gallery/nature-1.webp'); background-size:cover;"></div>
-               <div style="background:#eee; height:100px; border-radius:6px; background-image:url('img/gallery/national-1.webp'); background-size:cover;"></div>
+          <!-- Featured Static Gallery (National Corner) -->
+          <div class="featured-gallery">
+               <img src="img/gallery/national-1.webp" alt="Балабақша фотосуреті" onclick="openLightbox(this.src)">
+               <img src="img/gallery/national-2.webp" alt="Балабақша фотосуреті" onclick="openLightbox(this.src)">
+               <img src="img/gallery/national-3.webp" alt="Балабақша фотосуреті" onclick="openLightbox(this.src)">
+               <img src="img/gallery/national-4.webp" alt="Балабақша фотосуреті" onclick="openLightbox(this.src)">
           </div>
 
-          <a class="cta" href="photos.html">📸 Галереяны ашу</a>
+          <a class="cta" href="photos.html" style="margin-top:1.5rem; display:inline-block;">📸 Галереяны ашу</a>
+        
+          <!-- Simple Lightbox for Home -->
+          <div id="homeLightbox" class="lightbox" onclick="this.style.display='none'">
+              <span class="lightbox-close">&times;</span>
+              <img id="homeLightboxImg" src="">
+          </div>
+          <script>
+            function openLightbox(src) {
+                document.getElementById('homeLightboxImg').src = src;
+                document.getElementById('homeLightbox').style.display = 'flex';
+            }
+          </script>
         </section>
 
         <!-- Контактная секция удалена по запросу -->

@@ -91,6 +91,10 @@
         </p>
       </div>
 
+      <div id="videoContainer" style="margin-bottom:3rem;">
+        <!-- Videos will be injected here -->
+      </div>
+
       <div id="galleryContainer">
           <!-- JS will inject categories here -->
       </div>
@@ -111,11 +115,46 @@
   <script src="js/gallery-data.js"></script>
   <script>
       (function() {
-          if(typeof galleryCategories === 'undefined') return;
-
           const container = document.getElementById('galleryContainer');
+          const videoContainer = document.getElementById('videoContainer');
           const lb = document.getElementById('lightbox');
           const lbImg = document.getElementById('lightboxImg');
+
+          // 1. Render Videos if available
+          if(typeof galleryVideos !== 'undefined' && galleryVideos.length > 0) {
+              const vSection = document.createElement('section');
+              vSection.className = 'gallery-section';
+              
+              const h2 = document.createElement('h2');
+              h2.textContent = "Бейнегалерея";
+              vSection.appendChild(h2);
+
+              const vGrid = document.createElement('div');
+              vGrid.className = 'photo-grid'; // Reuse grid styles
+
+              galleryVideos.forEach(vidSrc => {
+                  const card = document.createElement('div');
+                  card.className = 'photo-card';
+                  card.style.height = 'auto'; // Auto height for video controls
+
+                  const video = document.createElement('video');
+                  video.src = 'img/video/' + vidSrc;
+                  video.controls = true;
+                  video.style.width = '100%';
+                  video.style.height = '220px';
+                  video.style.objectFit = 'cover';
+                  video.style.backgroundColor = '#000';
+                  
+                  card.appendChild(video);
+                  vGrid.appendChild(card);
+              });
+              
+              vSection.appendChild(vGrid);
+              videoContainer.appendChild(vSection);
+          }
+
+          // 2. Render Photo Categories
+          if(typeof galleryCategories === 'undefined') return;
 
           // Iterate over categories
           for (const [title, images] of Object.entries(galleryCategories)) {

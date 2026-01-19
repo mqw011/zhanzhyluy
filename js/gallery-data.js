@@ -52,3 +52,9 @@ const galleryCategories = {
     "national-5.webp"
   ]
 };
+const galleryVideos = [
+  "WhatsApp Video 2026-01-19 at 14.38.16.mp4",
+  "WhatsApp Video 2026-01-19 at 14.38.17.mp4",
+  "WhatsApp Video 2026-01-19 at 14.53.36.mp4",
+  "WhatsApp Video 2026-01-19 at 15.15.50.mp4"
+];
