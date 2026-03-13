@@ -74,5 +74,9 @@ const galleryVideos = [
   "WhatsApp Video 2026-01-19 at 17.36.07.mp4",
   "WhatsApp Video 2026-01-19 at 16.52.18.mp4",
   "WhatsApp Video 2026-01-19 at 16.55.03.mp4",
-  "WhatsApp Video 2026-01-19 at 16.55.23.mp4"
+  "WhatsApp Video 2026-01-19 at 16.55.23.mp4",
+  "IMG_0102.MP4",
+  "IMG_0103.MP4",
+  "IMG_0104.MP4",
+  "IMG_0105.MP4"
 ];

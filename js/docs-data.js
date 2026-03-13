@@ -3771,6 +3771,12 @@ const docsData = [
     "path": "Мекеме құжаттары",
     "children": [
       {
+        "name": "Аттестаттаудың қортындысы туралы бұйрық..pdf",
+        "type": "file",
+        "fileType": "pdf",
+        "path": "Мекеме құжаттары/Аттестаттаудың қортындысы туралы бұйрық..pdf"
+      },
+      {
         "name": "БИН_compressed.pdf",
         "type": "file",
         "fileType": "pdf",
@@ -3781,6 +3787,12 @@ const docsData = [
         "type": "file",
         "fileType": "pdf",
         "path": "Мекеме құжаттары/Договор_пожарка.pdf"
+      },
+      {
+        "name": "Жан Жылуы.pdf",
+        "type": "file",
+        "fileType": "pdf",
+        "path": "Мекеме құжаттары/Жан Жылуы.pdf"
       },
       {
         "name": "Жарғы “Жан жылуы”бб_compressed.pdf",
