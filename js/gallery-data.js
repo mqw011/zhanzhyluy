@@ -91,5 +91,11 @@ const galleryVideos = [
   "IMG_1399.MP4",
   "IMG_1400.MP4",
   "IMG_1401.MP4",
-  "IMG_1402.MP4"
+  "IMG_1402.MP4",
+  "IMG_1403.MP4",
+  "IMG_1404.MP4",
+  "IMG_1405.MP4",
+  "IMG_1406.MP4",
+  "IMG_1407.MP4",
+  "IMG_1408.MP4"
 ];
